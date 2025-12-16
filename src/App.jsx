@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Day_42_react/">
       <Routes>
         <Route element={<AuthLayout />}>
           <Route path="/register" element={<Register />} />

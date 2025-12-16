@@ -39,6 +39,9 @@ const Register = () => {
 
   const [RequestRegister, response] = useRegisterMutation();
 
+  console.log(response);
+
+  const errEmail = response?.error?.message?.email;
   useEffect(() => {
     if (response.isSuccess) {
       const { access_token } = response.data;
@@ -101,7 +104,10 @@ const Register = () => {
               {...register("email")}
             />
           </label>
-          <p className="h-3 text-red-600 my-2">{errors.email?.message}</p>
+          <p className="h-3 text-red-600 my-2">
+            {errors.email?.message}
+            {errEmail ? "Email Đã Tồn Tại" : ""}
+          </p>
         </div>
         <div>
           <label htmlFor="password">
